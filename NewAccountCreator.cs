@@ -14,10 +14,6 @@ namespace StandardChartered {
 
         static void Main(string[] args) {
 
-        h:
-            
-            Console.WriteLine(Validator.dateValidation(Console.ReadLine()));
-            goto h;
             Console.WriteLine("************************************************************************************************");
             Console.WriteLine("WELCOME TO STANDARD CHARTERED BANK, SIMULATION");
             Console.WriteLine("Account Directory: " + accountDirectory);
@@ -60,10 +56,10 @@ namespace StandardChartered {
             int accountNumberStart = accountNumberGenerator.Next(111111, 999999);
             int accountNumberEnd = accountNumberGenerator.Next(11111, 99999);
             String uniqueAccountNumber = accountNumberStart.ToString() + accountNumberEnd.ToString();
-
             return uniqueAccountNumber;
         }
 
+        //get account details via cli interaction
         static void getAcountRecordFromMenu() {
         StartRecord:
             Console.WriteLine("Please enter the 11 digit account number:");
@@ -78,6 +74,8 @@ namespace StandardChartered {
                 goto StartRecord;
             }
         }
+
+        //get account details without interaction
         static void getAccountRecord(String accountNumber) {
             StreamReader reader = new StreamReader(accountDirectory + accountNumber + ".txt");
 
@@ -288,8 +286,8 @@ namespace StandardChartered {
             streamWriter.WriteLine("idType: " + idType);
 
 
-            //add  issue date date
-            EnterIssueOrExpiryDate:
+        //add  issue date date
+        EnterIssueOrExpiryDate:
             Console.Write("Enter Issue/Expiry Date:");
             String issueOrExpiryDate = Console.ReadLine();
             String issueOrExpiryDateError = Validator.dateValidation(issueOrExpiryDate);
@@ -555,8 +553,8 @@ namespace StandardChartered {
             if (contractNature.Length == 0) goto EnterContractNature;
             streamWriter.WriteLine("contractNature: " + contractNature);
 
-            //Contact Expiry
-            EnterContractExpiry:
+        //Contact Expiry
+        EnterContractExpiry:
             Console.Write("Enter Contract Expiry");
             String contractExpiry = Console.ReadLine();
             String contractExpiryError = Validator.dateValidation(contractExpiry);
