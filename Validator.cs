@@ -35,6 +35,12 @@ namespace StandardChartered
 
             return (!dobMatch.Success) ? "Date of Birth input format invalid" : "";
         }
-      
+
+        public static String idTypeValidation(String title)
+        {
+            String[] validTitle = { "1", "2", "3"};
+            return (validTitle.Contains(title)) ? "" : "Invalid input type any of the following options 1. Passport  2. National ID  3. Driver's Licence";
+        }
+
     }
 }
