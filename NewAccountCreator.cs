@@ -409,9 +409,16 @@ namespace StandardChartered {
 
 
             //email
+            EnterEmail:
             Console.Write("Enter Email Address: ");
             String emailAddress = Console.ReadLine();
-            streamWriter.WriteLine("emailAddress: " + emailAddress);
+            try {
+                var addr = new System.Net.Mail.MailAddress(emailAddress);
+                streamWriter.WriteLine("emailAddress: " + emailAddress);
+            } catch {
+                Console.WriteLine("Email address invalid, please try again!");
+                goto EnterEmail;
+            }
 
         //mailing address
         EnterMailingAddress:
