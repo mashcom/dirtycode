@@ -265,7 +265,7 @@ namespace StandardChartered {
 
         //get dob and validate the input
         EnterDateOfBirth:
-            Console.Write("Enter Date of Birth Name:");
+            Console.Write("Enter Date of Birth Name (MM/DD/YYYY):");
             String dateOfBirth = Console.ReadLine();
             String dateOfBirthError = Validator.dateValidation(dateOfBirth);
             if (dateOfBirthError != "") {
@@ -288,10 +288,10 @@ namespace StandardChartered {
 
         //add  issue date date
         EnterIssueOrExpiryDate:
-            Console.Write("Enter Issue/Expiry Date:");
+            Console.Write("Enter Issue/Expiry Date (MM/DD/YYYY):");
             String issueOrExpiryDate = Console.ReadLine();
             String issueOrExpiryDateError = Validator.dateValidation(issueOrExpiryDate);
-            if (issueOrExpiryDate != "") {
+            if (issueOrExpiryDateError != "") {
                 Console.WriteLine(issueOrExpiryDateError);
                 goto EnterIssueOrExpiryDate;
             }
@@ -336,7 +336,7 @@ namespace StandardChartered {
 
         //spouse name
         EnterSpouseName:
-            Console.Write("Enter Enter Spouse Name (Optional):");
+            Console.Write("Enter Enter Spouse Name (Optional): ");
             String spouseName = Console.ReadLine().ToUpper();
             String spouseNameError = Validator.NameValidation(spouseName, false);
             if (spouseNameError != "") {
@@ -347,10 +347,10 @@ namespace StandardChartered {
 
         //number of children
         EnterNumberOfChildren:
-            Console.Write("Enter Number of Children (Optional):");
+            Console.Write("Enter Number of Children (Optional): ");
             String numberOfChildren = Console.ReadLine();
             try {
-                Validator.wholeNumberValidation(numberOfChildren);
+                Validator.wholeNumberValidation(numberOfChildren,false);
                 streamWriter.WriteLine("numberOfChildren: " + numberOfChildren);
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
@@ -383,7 +383,7 @@ namespace StandardChartered {
 
         //country code
         EnterCountryCode:
-            Console.Write("Enter Country Code:");
+            Console.Write("Enter Country Code: ");
             String countryCode = Console.ReadLine();
             try {
                 Validator.wholeNumberValidation(countryCode);
@@ -397,7 +397,7 @@ namespace StandardChartered {
 
         //mobile
         EnterMobileNumber:
-            Console.Write("Enter Mobile Number:");
+            Console.Write("Enter Mobile Number: ");
             String mobileNumber = Console.ReadLine();
             try {
                 Validator.phoneNumberValidation(mobileNumber);
@@ -409,27 +409,27 @@ namespace StandardChartered {
 
 
             //email
-            Console.Write("Enter Email Address:");
+            Console.Write("Enter Email Address: ");
             String emailAddress = Console.ReadLine();
             streamWriter.WriteLine("emailAddress: " + emailAddress);
 
         //mailing address
         EnterMailingAddress:
-            Console.Write("Enter Mailing Address:");
+            Console.Write("Enter Mailing Address: ");
             String mailingAddress = Console.ReadLine();
             if (mailingAddress.Length == 0) goto EnterMailingAddress;
             streamWriter.WriteLine("mailingAddress: " + mailingAddress);
 
         //ownership  residence
         EnterOnwnershipOfResidence:
-            Console.Write("Enter Ownership of Residence:");
+            Console.Write("Enter Ownership of Residence: ");
             String onwnershipOfResidence = Console.ReadLine();
             if (onwnershipOfResidence.Length == 0) goto EnterOnwnershipOfResidence;
             streamWriter.WriteLine("onwnershipOfResidence: " + onwnershipOfResidence);
 
         //rental amount
         EnterRentalAmount:
-            Console.Write("If rented, Rental Amount:");
+            Console.Write("If rented, Rental Amount: ");
             String rentalAmount = Console.ReadLine();
             try {
                 Validator.wholeNumberValidation(rentalAmount, false);
@@ -441,18 +441,18 @@ namespace StandardChartered {
 
         //Physical Residential Address
         EnterPhysicalAddress:
-            Console.Write("Enter Physical Residential Address");
+            Console.Write("Enter Physical Residential Address: ");
             String physicalAddress = Console.ReadLine();
             if (physicalAddress.Length == 0) goto EnterPhysicalAddress;
             streamWriter.WriteLine("physicalAddress: " + physicalAddress);
 
         //number of years
         EnterYearsAtResidence:
-            Console.Write("Enter No. of Years Stayed :");
+            Console.Write("Enter No. of Years Stayed: ");
             float yearsAtResidence;
             try {
                 yearsAtResidence = float.Parse(Console.ReadLine());
-            } catch (Exception e) {
+            } catch (Exception ex) {
                 Console.WriteLine("Invalid value for input Years At Residence");
                 goto EnterYearsAtResidence;
             }
@@ -474,49 +474,49 @@ namespace StandardChartered {
 
         //Nature Of Employment
         EnterNatureOfEmployment:
-            Console.WriteLine("Enter Nature of Employment: e.g Salaried, Self-employed or any other");
+            Console.WriteLine("Enter Nature of Employment: e.g Salaried, Self-employed or any other: ");
             String natureOfEmployment = Console.ReadLine();
             if (natureOfEmployment.Length == 0) goto EnterNatureOfEmployment;
             streamWriter.WriteLine("natureOfEmployment: " + natureOfEmployment);
 
         //Nature Of Employment
         EnterEmploymentTerms:
-            Console.WriteLine("Enter Employment Terms: e.g Permanent, Contract or any other:");
+            Console.WriteLine("Enter Employment Terms: e.g Permanent, Contract or any other: ");
             String employmentTerms = Console.ReadLine();
             if (employmentTerms.Length == 0) goto EnterEmploymentTerms;
             streamWriter.WriteLine("employmentTerms: " + employmentTerms);
 
         //Name of Business
         EnterBusiness:
-            Console.Write("Enter Name of Employer/Business");
+            Console.Write("Enter Name of Employer/Business: ");
             String business = Console.ReadLine();
             if (business.Length == 0) goto EnterBusiness;
             streamWriter.WriteLine("business: " + business);
 
         //Nature of Business
         EnterNatureOfBusiness:
-            Console.Write("Enter Name of Employer/Business");
+            Console.Write("Enter Nature of Employer/Business: ");
             String natureOfbusiness = Console.ReadLine();
             if (natureOfbusiness.Length == 0) goto EnterNatureOfBusiness;
             streamWriter.WriteLine("natureOfbusiness: " + natureOfbusiness);
 
         //Employers Address
         EnterEmployerAddress:
-            Console.Write("Enter Employers Address");
+            Console.Write("Enter Employers Address: ");
             String employerAddress = Console.ReadLine();
             if (employerAddress.Length == 0) goto EnterEmployerAddress;
             streamWriter.WriteLine("employerAddress: " + employerAddress);
 
         //Qualification
         EnterQualification:
-            Console.Write("Enter Qualification");
+            Console.Write("Enter Qualification: ");
             String qualification = Console.ReadLine();
             if (qualification.Length == 0) goto EnterQualification;
             streamWriter.WriteLine("qualification: " + qualification);
 
         //Employer Contact Number
         EnterEmployerContactNumber:
-            Console.Write("Enter Employer Contact Number");
+            Console.Write("Enter Employer Contact Number: ");
             String employerContactNumber = Console.ReadLine();
             try {
                 Validator.phoneNumberValidation(employerContactNumber);
@@ -529,14 +529,14 @@ namespace StandardChartered {
 
         //Occupation
         EnterOccupation:
-            Console.Write("Enter Occupation/Profession");
+            Console.Write("Enter Occupation/Profession: ");
             String occupation = Console.ReadLine();
             if (occupation.Length == 0) goto EnterOccupation;
             streamWriter.WriteLine("occupation: " + occupation);
 
         //staffNumber
         EnterStaffNumber:
-            Console.Write("Enter Employment/Staff Number");
+            Console.Write("Enter Employment/Staff Number: ");
             String staffNumber = Console.ReadLine();
             try {
                 Validator.wholeNumberValidation(staffNumber, false);
@@ -548,17 +548,17 @@ namespace StandardChartered {
 
         //Contact Nature
         EnterContractNature:
-            Console.Write("Enter Contract Nature");
+            Console.Write("Enter Contract Nature: ");
             String contractNature = Console.ReadLine();
             if (contractNature.Length == 0) goto EnterContractNature;
             streamWriter.WriteLine("contractNature: " + contractNature);
 
-        //Contact Expiry
+        //Contract Expiry
         EnterContractExpiry:
-            Console.Write("Enter Contract Expiry");
+            Console.Write("Enter Contract Expiry (MM/DD/YYYY): ");
             String contractExpiry = Console.ReadLine();
             String contractExpiryError = Validator.dateValidation(contractExpiry);
-            if (dateOfBirthError != "") {
+            if (contractExpiryError != "") {
                 Console.WriteLine(contractExpiryError);
                 goto EnterContractExpiry;
             }
@@ -566,10 +566,11 @@ namespace StandardChartered {
 
         //duration
         EnterYearsAtOrganisation:
-            Console.Write("Enter Years (You will be asked amount months on next input) at current organisation:");
+            Console.WriteLine ("Enter Years (You will be asked amount months on next input) at current organisation:");
             String durationAtOrganisation = Console.ReadLine();
+            int yearsAtCurrent = 0;
             try {
-                Validator.wholeNumberValidation(durationAtOrganisation);
+                yearsAtCurrent = Validator.wholeNumberValidation(durationAtOrganisation);
                 streamWriter.WriteLine("durationAtOrganisation: " + durationAtOrganisation);
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
@@ -578,7 +579,7 @@ namespace StandardChartered {
 
         //duration
         EnterMonthsAtOrganisation:
-            Console.Write("Enter Months at current organisation:");
+            Console.Write("Enter Months at current organisation: ");
             String monthsAtOrganisation = Console.ReadLine();
             try {
                 int month = Validator.wholeNumberValidation(monthsAtOrganisation);
@@ -589,12 +590,86 @@ namespace StandardChartered {
                 goto EnterMonthsAtOrganisation;
             }
 
-            streamWriter.Close();
+        //Salary Reciept Date
+        EnterSalaryRecieptDate:
+            Console.Write("Enter Salary Reciept Date: ");
+            String salaryRecieptDate = Console.ReadLine();
+            try {
+                int day = Validator.wholeNumberValidation(salaryRecieptDate);
+                if (day < 1 || day > 31) throw new FormatException("Day input should be between 1 and 31");
+                streamWriter.WriteLine("salaryRecieptDate: " + salaryRecieptDate);
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                goto EnterSalaryRecieptDate;
+            }
 
+            if (yearsAtCurrent < 3) {
+            //Occupation
+            EnterPreviousEmployer:
+                Console.Write("Enter Previous Employer: ");
+                String previousEmployer = Console.ReadLine();
+                if (previousEmployer.Length == 0) goto EnterPreviousEmployer;
+                streamWriter.WriteLine("previousEmployer: " + previousEmployer);
+            }
+
+        //Contact Expiry
+        EnterCommencementDate:
+            Console.Write("Enter Contract Expiry (MM/DD/YYYY): ");
+            String commencementDate = Console.ReadLine();
+            String commencementDateError = Validator.dateValidation(commencementDate);
+            if (commencementDateError != "") {
+                Console.WriteLine(commencementDateError);
+                goto EnterCommencementDate;
+            }
+            streamWriter.WriteLine("commencementDate: " + commencementDate);
+
+
+        EnterIncomeSource:
+            Console.Write("Enter Other Income Source: ");
+            String incomeSource = Console.ReadLine();
+            if (incomeSource.Length == 0) goto EnterIncomeSource;
+            streamWriter.WriteLine("incomeSource: " + incomeSource);
+
+
+        EnterOtherIncomeAmount:
+            Console.Write("Enter Other Income Amount: ");
+            String otherIncomeAmount = Console.ReadLine();
+            try {
+                float income = float.Parse(otherIncomeAmount);
+                if (income <= 0) goto EnterOtherIncomeAmount;
+                streamWriter.WriteLine("otherIncomeAmount: " + otherIncomeAmount);
+            } catch (Exception e) {
+                Console.WriteLine("Invalid input, amount should be at least 1");
+                goto EnterYearsAtResidence;
+            }
+
+        EnterMonthlyGrossIncome:
+            Console.Write("Enter Monthly Gross Income: ");
+            String monthlyGrossIncome = Console.ReadLine();
+            try {
+                float income = float.Parse(monthlyGrossIncome);
+                if (income <= 0) goto EnterMonthlyGrossIncome;
+                streamWriter.WriteLine("monthlyGrossIncome: " + monthlyGrossIncome);
+            } catch (Exception e) {
+                Console.WriteLine("Invalid input, amount should be at least 1");
+                goto EnterYearsAtResidence;
+            }
+
+        EnterAddressOfBusiness:
+            Console.Write("Enter Address Of Business: ");
+            String addressOfBusiness = Console.ReadLine();
+            if (addressOfBusiness.Length == 0) goto EnterAddressOfBusiness;
+            streamWriter.WriteLine("addressOfBusiness: " + addressOfBusiness);
+
+
+
+            streamWriter.Close();
+            Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("Your Account Created Successfully:");
             Console.WriteLine("ACCOUNT NUMBER: " + accountNumber);
 
             Console.WriteLine("Press any key to go to view full record?");
+            Console.WriteLine("-------------------------------------------------");
             getAccountRecord(accountNumber);
             Console.ReadLine();
             Console.WriteLine("Press any key to go to the main menu?");
